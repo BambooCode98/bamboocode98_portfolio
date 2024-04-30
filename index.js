@@ -19,5 +19,5 @@ for(let i = 0; i < height; i+=10) {
 }
 ctx.fill();
 
-
+console.log("1");
 
