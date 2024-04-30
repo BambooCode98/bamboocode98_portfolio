@@ -10,14 +10,11 @@ const pi = 3.14159265;
 ctx.lineWidth = 1;
 ctx.fillStyle = "black";
 
-ctx.beginPath();
-for(let i = 0; i < height; i+=10) {
-  for(let j = 0; j < width; j++) {
-    ctx.arc(i,j,1,0,2*pi);  
-    ctx.fillStyle="hsl(${i},${j},${i}${j})";
-  }
+let particles = [];
+
+function animate() {
+    ctx.fillRect(0,0,width,height);
+
+
+    requestAnimationFrame(animate);
 }
-ctx.fill();
-
-console.log("1");
-
