@@ -1,20 +1,38 @@
 
 
-let canvas = document.querySelector('.canvas');
 
-let ctx = canvas.getContext('2d');
-let width = window.innerWidth,
-    height = window.innerHeight;
-const pi = 3.14159265;
 
-ctx.lineWidth = 1;
-ctx.fillStyle = "black";
+function main() {
+    let canvas = document.querySelector('.canvas');
+    
+    let gl = canvas.getContext('webgl');
+    
+    if(!gl) {
+        console.log("Webgl not found. Browser may not support it.");
+        return;
+    }
+    
+    let width = window.outerWidth,
+        height = window.outerHeight;
+    const pi = 3.14159265;
+    canvas.width = width;
+    canvas.height = height;
+    
+    gl.clearColor(0.0,0.0,0.0,1.0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    
+    let particles = [];
 
-let particles = [];
+}
 
 function animate() {
-    ctx.fillRect(0,0,width,height);
+    gl.fillRect(0,0,width,height);
 
 
     requestAnimationFrame(animate);
 }
+
+
+
+
+main();
