@@ -204,6 +204,19 @@ p{
     About Page
 ----------------------- */
 
+.aboutH{
+  text-decoration: underline;
+}
+
+.aboutSection{
+  background-color: rgba(255, 255, 255, 0.89);
+  border-radius: 1em;
+  align-self: flex-start;
+  padding: 0.5em 1em;
+  width: 100%;
+}
+
+
 /* -----------------------
     Project Page
 ----------------------- */
