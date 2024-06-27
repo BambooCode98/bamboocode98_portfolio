@@ -392,6 +392,11 @@ svg path{
   .imgCon{
     justify-content: center;
   }
+
+  .imgText{
+    align-self: center;
+
+  }
 }
 
 @media screen and (min-width: 1280px) {
