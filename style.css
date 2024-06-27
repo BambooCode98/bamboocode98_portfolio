@@ -349,7 +349,7 @@ svg path{
     width: 175%;
     position: fixed;
     display: block;
-    top: -65%;
+    top: -55vh;
     left: -17%;
   }
 
