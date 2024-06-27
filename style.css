@@ -389,9 +389,9 @@ svg path{
     object-fit: cover;
   }
   
-  /* .imgCon{
-    display: flex;
-  } */
+  .imgCon{
+    justify-content: center;
+  }
 }
 
 @media screen and (min-width: 1280px) {
