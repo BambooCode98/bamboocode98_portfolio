@@ -313,7 +313,7 @@ svg path{
     /* width: 210%; */
     position: fixed;
     display: block;
-    top: -40vh;
+    top: -40vh; /* use vh to prevent weird image position issues with chrome, etc...*/
     /* top: -55%; */
     left: -25%;
   }
@@ -333,10 +333,10 @@ svg path{
 @media screen and (min-width: 720px) {
   .bamboo-left{
     /* height: auto; */
-    width: 150%;
+    width: 160%;
     position: fixed;
     display: block;
-    top: -70%;
+    top: -65%;
     left: -17%;
   }
 
