@@ -8,20 +8,26 @@
 
 @font-face {
   font-family: Bodoni;
-  src: url(/Fonts/Bodoni_Moda/BodoniModa-Italic-VariableFont_opsz\,wght.ttf);
+  font-weight: 100 900;
+  font-display: swap;
+  /* src: url(/Fonts/Bodoni_Moda/BodoniModa-Italic-VariableFont_opsz\,wght.ttf); */
   src: url(/Fonts/Bodoni_Moda/BodoniModa-VariableFont_opsz\,wght.ttf);
   /* src: url(/Fonts/Bodoni_Moda/static/BodoniModa_18pt-Regular.ttf); */
 }
 
 @font-face {
   font-family: Playfair;
-  src: url(/Fonts/Playfair_Display/PlayfairDisplay-Italic-VariableFont_wght.ttf);
+  font-weight: 100 900;
+  font-display: swap;
+  /* src: url(/Fonts/Playfair_Display/PlayfairDisplay-Italic-VariableFont_wght.ttf); */
   src: url(/Fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf);
 }
 
 @font-face {
   font-family: Garamond;
-  src: url(/Fonts/EB_Garamond/EBGaramond-Italic-VariableFont_wght.ttf);
+  font-weight: 100 900;
+  font-display: swap;
+  /* src: url(/Fonts/EB_Garamond/EBGaramond-Italic-VariableFont_wght.ttf); */
   src: url(/Fonts/EB_Garamond/EBGaramond-VariableFont_wght.ttf);
   /* src: url(/Fonts/EB_Garamond/static/EBGaramond-Regular.ttf); */
 }
