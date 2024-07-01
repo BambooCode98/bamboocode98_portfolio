@@ -113,6 +113,7 @@ p{
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  gap: 10px;
 }
   
 .contact-links li a{
@@ -190,6 +191,8 @@ p{
   gap: 10px;
   width: 75%;
   align-self: last baseline;
+  position: relative;
+  /* border: 1px red solid; */
 }
 
 .intro-p{
@@ -204,7 +207,28 @@ p{
   /* color: rgb(0, 39, 0); */
 }
 
+.imgSig{
+  display: flex;
+  /* justify-content: space-evenly; */
+  width: 100%;
+  border: 1px solid red;
+  /* align-content: space-between; */
+  /* flex-direction: column; */
+}
 
+.socialImg{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  /* position: absolute; */
+  bottom: -15%;
+  left: 0;
+}
+
+.sig{
+  align-self: flex-end;
+}
 
 /* -----------------------
     About Page
@@ -296,9 +320,10 @@ p{
 
 .bamboo-left{
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   z-index: -999;
+  /* width: 100%; */
   /* filter: blur(1px); */
   
 }
@@ -310,7 +335,8 @@ svg rect{
 }
 
 svg path{
-  fill: #4b704484 !important;
+  fill: rgba(75, 112, 68, 0.518) !important;
+  /* fill: #4b704484 !important; */
   /* stroke: red; */
   /* color: red; */
 }
@@ -319,9 +345,9 @@ svg path{
   .bamboo-left{
     /* height: auto; */
     width: 210%;
-    position: fixed;
+    /* position: fixed; */
     display: block;
-    /* top: -55%; */
+    /* top: -55vh; */
     /* left: -25%; */
   }
 }
@@ -330,11 +356,11 @@ svg path{
   .bamboo-left{
     /* height: auto; */
     width: 200%;
-    position: fixed;
+    /* position: fixed; */
     display: block;
-    top: -45vh; /* use vh to prevent weird image position issues with chrome, etc...*/
+    bottom: -5vh; /* use bottom (instead of top!) to prevent weird image position issues with chrome, etc...*/
     /* top: -55%; */
-    left: -25%;
+    left: -25vw;
   }
 }
 
@@ -342,9 +368,9 @@ svg path{
   .bamboo-left{
     /* height: auto; */
     width: 170%;
-    position: fixed;
+    /* position: fixed; */
     display: block;
-    top: -45vh;
+    bottom: -45vh;
     left: -15%;
   }
 }
@@ -353,7 +379,7 @@ svg path{
   .bamboo-left{
     /* height: auto; */
     width: 165%;
-    position: fixed;
+    /* position: fixed; */
     display: block;
     top: -70vh;
     left: -17%;
