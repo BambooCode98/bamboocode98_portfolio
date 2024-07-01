@@ -211,7 +211,7 @@ p{
   display: flex;
   /* justify-content: space-evenly; */
   width: 100%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   /* align-content: space-between; */
   /* flex-direction: column; */
 }
