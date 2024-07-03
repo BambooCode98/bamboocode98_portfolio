@@ -209,11 +209,10 @@ p{
 
 .imgSig{
   display: flex;
-  /* justify-content: space-evenly; */
+  justify-content: flex-end;
   width: 100%;
-  /* border: 1px solid red; */
-  /* align-content: space-between; */
-  /* flex-direction: column; */
+  padding-top: 1%;
+  align-items: flex-end;
 }
 
 .socialImg{
@@ -222,12 +221,13 @@ p{
   border-radius: 50%;
   object-fit: cover;
   /* position: absolute; */
-  bottom: -15%;
-  left: 0;
+  /* bottom: -15%; */
+  /* left: 0; */
 }
 
 .sig{
-  align-self: flex-end;
+  width: 75%;
+  text-align: right;
 }
 
 /* -----------------------
