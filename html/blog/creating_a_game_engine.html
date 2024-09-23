@@ -1,0 +1,84 @@
+<h1>Creating A Game Engine</h1>
+
+<img src="/Images/blog/creating_a_game_engine.jpg"/>
+
+<time datetime="2024-08-31">August 31, 2024</time>
+
+<p>This post will be a guide/outline on how to make a game engine. Since this is going to be a very long project this will take quite some time to finish, and will need updated continuously. Any holes in information will be filled in over time.</p>
+
+<p>The game engine I will be making is going to be written in C. Everything will also be done from scratch, meaning I will attempt to minimize the use of any external libraries as much as possible. If you are wondering why I have decided to do it this way it is for the challenge, and the simplicity that goes along with the C language. I have used C++ before to make two small terminal based games and enjoyed it quite a bit, but I really didn't like how much extra stuff C++ has in its standard library compared to C. Considering simplicity, C is a clear winner to me. Of course, this doesn't mean C is perfect as many errors can arise. I have had more pointer errors than I can count, and other types of hard to find errors such as memory leaks.</p>
+
+<p>This goal of this game engine is to support these features:</p>
+<ol>
+  <li>1. Cross-Platform support on Linux, Windows, and possibly Mac.</li>
+  <li>2. Files/Folders organized considering the flow of data, more so than the user experience.</li>
+  <li>3. Support Vulkan as the main graphics driver.</li>
+  <li>4. Have a clean, simple, and user-friendly interface.</li>
+  <li>5. Support easy integration with models created in Blender.</li>
+  <li>6. Support PNG, BMP, and JPG image types.</li>
+  <li>7. Support audio file types.</li>
+  <li>8. Support as many joystick/video game controller types as possible.</li>
+  <li>9. Support as many consoles(Nintendo Switch, Xbox, PlayStation, etc.) as possible.</li>
+  <li>10. Try to implement as many features from scratch as possible.</li>
+  <li>11. Make video game creation extremely simple, fast, and fun.</li>
+  <li>12. Primary focus on 3D.</li>
+</ol>
+
+<p>This is just a broad idea as to what I will try to accomplish in this game engine, more detailed stuff such as lighting, math, memory management, and more will all be handled in-depth in their own posts, and outlined below.</p>
+
+<p>Note: As of August 20, 2024(first writing of this post) I have a decent base with the game engine setup already, so I plan to create posts describing how I have gotten to where I am currently at with the project.</p>
+
+<p>With all this said it is now time to get into making the engine!</p>
+<br>
+<br>
+
+<h2><u>The Beginning</u></h2>
+
+<p>When you first start a game engine you may be wondering "Where do I begin?", "How do I do _______?", or "How do I set this up?". Unfortunately, these questions cannot really be answered in any specific way, because the engine can be structured in any way you like. For me, I chose to structure this game engine according to how I imagine the data flowing through the application.</p>
+
+<p>Starting this at a very basic point, you will want to open a text editor of your choice. I will be using VS Code, but anything will work.</p>
+
+<img src="/Images/post_images/creating_a_game_engine/beginning_screen.png"/>
+<p class="img_caption">The first view of the game engine.</p>
+
+
+<p>Until the window system is set up there won't be too much to see. Since it is simpler (relatively speaking), I am going to start with the Linux side of things.</p>
+
+<p>To view the steps on how to setup a window system in Linux view this post: <a href="/blog/creating_a_window_in_linux_with_x11"><u>Creating A Window in Linux with X11</u></a>.</p>
+
+<p>Note: This window will later be integrated with Vulkan to create the surface that will display the graphics.</p>
+
+<p>Since the window is now set up ----</p>
+
+<br>
+<br>
+
+<h2><u>Post-Vulkan Setup</u></h2>
+
+<div class="iframeCon">
+  <p>Current progress of the game engine below:</p>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/mp_FQjNfE0A?si=351Cxd133jwTskp2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+<p>At the time of this writing (August 20, 2024), I would say this is where I am currently at in my development of the engine, however, I still have the most basic vulkan configuration imaginable. There are many routes I can go from here:</p>
+<ol>
+  <li>1. Configure the memory management systems to track how much data is being loaded/unloaded in the application. Also set up an image memory pool that will allocate used and unused image memory.</li>
+  <li>2. Start working on adding more shader support, such as compute shaders.</li>
+  <li>3. Work on lighting techniques.</li>
+  <li>4. Configure controller support.</li>
+  <li>5. Work on interesting effects.</li>
+</ol>
+
+<p>Focusing on interesting effects at this time is probably not necessary. Previously I have had to use <code>malloc</code> to serve the memory for models and images. I really did not want to do this, due to the constraints that <code>malloc</code> comes with. While working on adding compute shaders could be useful, they also aren't necessary at this time. Neither is working on the other shaders. Controller support now would simply be a fun and interesting thing to work on, but it is not strictly necessary either. So, it seems that working on the memory management system will be the next best course of action.</p>
+
+<p>I have a very, very basic memory management system currently set up, but it will need to be reworked substantially to be useful. Since I am in need of memory in the engine, starting on this system will be the first course of action, followed by the likely replacement of <code>malloc</code>.</p>
+
+<p>View the reworked memory management here: <a href="/blog/creating_a_memory_management_system"><u>Reworking the Memory Management System</u></a>.</p>
+
+<br>
+<br>
+
+<h6>Notice: August 21, 2024 - This is as far as I have gotten so far, so stay tuned for more updates!</h6>
+
+
+

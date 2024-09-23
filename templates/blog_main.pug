@@ -1,0 +1,45 @@
+
+body(class="body")
+    div(class="header")
+      h1(class="titleH")
+        a(href="/" class="title") The Bamboo Coder
+      include menu.svg 
+      div(class="desktopMenu")
+        ul(class="desktopLinks")
+          li(class="headList dli")
+            a(href="/about" class="listLink") About
+          li(class="headList dli")
+            p(class="listDot") &#9679;
+          li(class="headList dli")
+            a(href="/blog" class="listLink") Blog
+          li(class="headList dli")
+            p(class="listDot") &#9679;
+          li(class="headList dli")
+            a(href="/projects" class="listLink") Projects
+      div(class="mobileMenu")
+        ul(class="links")
+          li(class="headList")
+            a(href="/about" class="listLink") About
+          li(class="headList")
+            a(href="/blog" class="listLink") Blog
+          li(class="headList")
+            a(href="/projects" class="listLink") Projects
+    div(class="main")
+      -let j = 0;
+      for i in list
+        //- -console.log(blogTitles[j], "pug file");
+        -let words = blogTitles[j].toLowerCase().split(" ").map(text => text.charAt(0).toUpperCase() + text.substr(1).toLowerCase()).join(" ");
+        a(href=`blog/${i}` class="blog-head-link")
+          div(class="blog-list")
+            - var s = '/Images/blog/' + i + '.jpg';
+            img(src=s class="blog-image")
+            p(class="blog-link")= words
+            -j++;
+      //- p= list
+    //- footer(class="footer")
+    //-   div(class="foot-left")
+    //-     | &#169;The Bamboo Coder - 2024
+    //-   div(class="foot-middle")
+    //-   div(class="foot-right")
+    script(src="/index.js")
+    include bamboo.svg

@@ -1,0 +1,85 @@
+<h2>Creating a Memory Management System</h2>
+
+
+<p>In this post I will cover:</p>
+<ol>
+  <li>1. </li>
+</ol>
+
+<h3>Creating a Memory Arena</h3>
+
+<p>To begin, we first need to figure out how to go about allocating memory for the program. We could use <code>malloc</code> to allocate a large block of memory once at the intital startup of the application. This would work from what I have seen and reduce the calls to <code>malloc</code> to two instances, because we would divide the memory up from this main block to the whole application as it is needed. Doing this would also allow for more control over the entire memory management process.</p>
+
+<p>The other thing we could do is to use a Linux system call such as sbrk or mmap. Using these would avoid the use of <code>malloc</code> which will help in performance intensive programs (like this one!). The question then becomes "Which case is the better tradeoff?". With the srbk/mmap calls you gain complexity, less platform independent code, more freedom, customizability, and control over the lower level code. With malloc you get more portability, more platform independent code, but get less freedom, customizability, and generally slower speeds.</p>
+
+<p>Since we are going to be allocating a large amount of memory right off the bat when the program starts, either <code>malloc</code> or <a href="https://man7.org/linux/man-pages/man2/mmap.2.html" target="_blank"><u>mmap</u></a> would work. Sbrk will not be chosen as it is not as portable across POSIX systems. THe choice now comes down to <code>malloc</code> and <code>mmap</code>. The game engine will be focused on 3D with a preference for performance and portability, so factoring this into account, what would be the best choice? Using mmap to <i>tend</i> toward performance, or use <code>malloc</code> for portability? Given the breadth of systems and this still being early stage, <code>malloc</code> will be chosen. The difference will probably be quite minimal since the design will be for a single call to the chosen function right at the beginning of the program. After allocating the memory arena, it will be divided up into blocks for each subsystem to use.</p>
+
+<p>Note: If you would like to read about sbrk, take a look at this wikipedia article on it: <a href="https://en.wikipedia.org/wiki/Sbrk"><u>srbk info</u></a>.</p>
+
+
+<p>Now we will create the memory arena with malloc. We will begin by creating the allocate and deallocate functions.</p>
+
+<pre>
+  <code>
+    void allocateArena() {
+
+    }
+
+    void deallocateArena() {
+
+    }
+  </code>
+</pre>
+
+<p>Next we will use malloc to create the memory block that will be 2 gib in size. We will also add the <code>gib</code> variable.</p>
+
+
+<pre>
+  <code>
+    uint64_t gib = 1024 * 1024 * 1024; // each 1024 represents a kib, mib, then gib repsectively
+
+    void allocateArena() {
+      uint32_t* initialAddress = malloc(2*gib);
+      uint32* finalAddress = initialAddress + (2*gib);
+    }
+
+    void deallocateArena() {
+
+    }
+  </code>
+</pre>
+
+<p>With this we now have the allocate function setup in a very basic way! However, it is likely far from done. Next, the deallocate function will need to be configured to free the memory.</p>
+
+<pre>
+  <code>
+    uint64_t gib = 1024 * 1024 * 1024; // each 1024 represents a kib, mib, then gib repsectively
+    uint32_t* initialAddress;
+
+    void allocateArena() {
+      initialAddress = malloc(2*gib);
+      uint32* finalAddress = initialAddress + (2*gib);
+    }
+
+    void deallocateArena() {
+      free(initialAddress);
+    }
+  </code>
+</pre>
+
+<p>With that the engine now has allocation and deallocation of a single block of memory. Starting off at 2gib may seem large, but it is only a rough estimate. Of course, this number can be expanded when a game is actually being developed.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><bold>Note: The Windows section will be added at a later date!</bold></p>
